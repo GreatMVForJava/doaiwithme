@@ -62,7 +62,7 @@ skills/
 ├── web-search-skill.md
 ├── context-search-skill.md
 └── ...
-```
+``` text
 
 ### 3.3 技能描述规范
 
