@@ -29,41 +29,52 @@
 .iflow/
 ├── context/                    # 上下文模块
 │   ├── concept/
-│   │   └── GLOBAL_CONCEPTS.md  # 全局概念定义文档
+│   │   └── GLOBAL_CONCEPTS.md  # 全局概念定义文档（定义核心术语如智能人、协作模式等）
 │   ├── experience/
-│   │   └── EXPERIENCE_SPEC.md  # 用户体验规范文档
-│   └── issues/
-│       └── ISSUES_SPEC.md      # 问题分类与处理规范文档
-├── rule/                       # 规则模块
-│   ├── ai-coding/              # AI 编码规范
-│   │   ├── 11-javadoc-comment/
-│   │   ├── 14-database-idempotence/
-│   │   ├── 15-delete-unused-code/
-│   │   ├── 17-method-consistency/
-│   │   ├── 18-modification-completeness/
-│   │   ├── 21-concurrency-safety/
-│   │   ├── 22-interface-parameter-validation/
-│   │   ├── 23-naming-semantic/
-│   │   └── CODING_SPEC.md
-│   └── ai-collaboration/       # AI 协作规范
-│       ├── 24-comprehensive-analysis/
-│       ├── 30-markdown-format/
-│       ├── 32-post-modification-check/
-│       └── AI_COLLABORATION_SPEC.md
-├── skills/                     # 技能模块
-│   ├── context-search-skill.md
-│   ├── web-search-skill.md
-│   └── SKILLS_SPEC.md
-├── endPoint.md                 # 结束点文档
-├── prompt.md                   # 提示词文档
-└── start.md                    # 起始点文档
+│   │   ├── EXPERIENCE_SPEC.md  # 经验规范总入口（定义经验沉淀格式和分类）
+│   │   ├── cold-start.md       # 冷启动方法
+│   │   ├── collaboration-method.md  # 协作方法（乔哈里窗、苏格拉底等）
+│   │   ├── collaboration-role.md    # 协作角色定义
+│   │   └── infrastructure.md   # 基础设施设计
+│   ├── issues/
+│   │   ├── ISSUES_SPEC.md      # 问题规范总入口（定义问题分类和记录规范）
+│   │   └── 2026-03-02-AI主动性不足.md  # 具体问题记录
+│   ├── rule/
+│   │   ├── RULE_SPEC.md        # 规则规范总入口（定义规则设计规范和分类导航）
+│   │   ├── ai-coding/          # AI 编码规范
+│   │   │   ├── CODING_SPEC.md  # 编码规范总入口（设计原则、代码架构、代码质量）
+│   │   │   ├── 17-javadoc-comment/
+│   │   │   ├── 20-database-idempotence/
+│   │   │   ├── 22-method-consistency/
+│   │   │   ├── 23-modification-completeness/
+│   │   │   ├── 25-concurrency-safety/
+│   │   │   ├── 26-interface-parameter-validation/
+│   │   │   └── 27-naming-semantic/
+│   │   └── ai-collaboration/   # AI 协作规范
+│   │       ├── AI_COLLABORATION_SPEC.md  # 协作规范总入口（协作流程、Git规范、文档规范）
+│   │       ├── 04-linkage-integrity/
+│   │       ├── 05-comprehensive-analysis/
+│   │       ├── 07-markdown-format/
+│   │       ├── 09-post-modification-check/
+│   │       ├── checkpoint/
+│   │       │   └── CHECKPOINT_SPEC.md    # 检查点规范（关键操作的检查触发机制）
+│   │       └── workflow/
+│   │           └── WORKFLOW_SPEC.md      # 流程规范（预检→确认→规划→执行→自检→沉淀）
+│   └── skills/
+│       ├── SKILLS_SPEC.md      # 技能规范总入口（定义Skills元数据、调用流程、创建规范）
+│       ├── context-search-skill.md
+│       └── web-search-skill.md
+├── start.md                    # AI 行为启动入口
+├── endPoint.md                 # 执行流程规范
+└── 备忘录.md                    # 人类备忘录
 
 app-demand/                     # 应用需求模块
-├── requirementsGuidelines.md   # 需求工程指南
-├── requirementsTemplate.md     # 需求模板
+├── APP_DEMAND_SPEC.md          # 需求规范总入口（定义需求生命周期和协作模式）
+├── requirementsGuidelines.md   # 需求编写准则
+├── requirementsTemplate.md     # 需求文档模板
 └── 2026-02-27/                 # 按日期组织的需求
     └── 支付 demo/
-        ├── 需求冷启动.md
+        ├── requirementColdStart.md  # 需求级冷启动（人与AI共用）
         ├── 产品/
         │   └── 支付 demo.md
         └── 测试/
