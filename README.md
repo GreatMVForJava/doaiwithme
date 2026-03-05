@@ -72,7 +72,13 @@ app-demand/                     # 应用需求模块
 
 > 其中.iflow/context/rule/ai-coding 是基于 JDK17 版本做的代码规范，可以不用！！！
 
-## 四、复合工程相关
+## 四、核心概念
+
+1. **智能人**：AI + 人的组合体，具备决策 + 执行的完整能力
+2. **协作模式**：AI 自我理解、AI+人协作、人+人配合、智能人+智能人、AI+AI配合
+3. 详细定义见 `.iflow/context/concept/GLOBAL_CONCEPTS.md`
+
+## 五、复合工程相关
 
 1. [认知重建：Speckit 用了三个月，我放弃了——走出工具很强但用不好的困境](https://mp.weixin.qq.com/s/CXx-0ar1EBf14vgQHHjU7A)
 2. [Compound Engineering: How Every Codes With Agents](https://every.to/chain-of-thought/compound-engineering-how-every-codes-with-agents)

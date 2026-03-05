@@ -1,5 +1,7 @@
 # endPoint.md - AI 执行规范
 
+---
+
 ## 零、核心流程
 
 ``` text
@@ -8,26 +10,42 @@
 
 每步都必须输出，等待人类确认。
 
-**详细流程**：见 `context/rule/ai-collaboration/workflow/WORKFLOW_SPEC.md`
+**详细流程**：见 `@.iflow/context/rule/ai-collaboration/workflow/WORKFLOW_SPEC.md `
 
 ---
 
 ## 一、预检
 
-**核心问题：是否有概念阻塞理解需求？**
+**核心问题：是否有概念阻塞？这是什么类型的操作？需要读取哪些文件？**
 
-- 无阻塞 → 直接进入确认步骤
-- 有阻塞 → 先消除阻塞（调用 skill 查询 / 向用户确认）
+**执行顺序**：
+1. **概念阻塞检查**：是否有不理解的概念？→ 先读取 `@.iflow/context/concept/GLOBAL_CONCEPTS.md`
+2. **意图判断**：根据理解的需求，判断操作意图
+3. **文件读取**：根据意图映射必须读取的文件列表
 
-**必须输出**：概念阻塞检查结果
+**意图-文件映射表**：
+
+| 操作意图 | 必须读取的文件 |
+|---------|---------------|
+| 修改规范文件 | `@.iflow/start.md `, `@.iflow/endPoint.md `, 相关规范文件 |
+| 修改代码文件 | `@.iflow/context/rule/ai-coding/CODING_SPEC.md `, 相关代码文件 |
+| 沉淀经验 | `@.iflow/context/experience/collaboration-method.md `, `@.iflow/context/experience/EXPERIENCE_SPEC.md ` |
+| 创建文档 | 检查规则8，确认是否允许 |
+
+**人机协作**：AI 自行判断意图，有概念阻塞则主动消除
 
 **输出格式**：
 ```
 ## 预检
-- 概念阻塞：[无 / 有，已解决：xxx]
+- 概念阻塞：[无 / 有，概念：xxx，已读取：@GLOBAL_CONCEPTS.md，已理解：xxx]
+- 操作意图：[修改规范/修改代码/沉淀经验/创建文档]
+- 必须读取：
+  - @.iflow/context/xxx/xxx.md 
+  - @.iflow/context/xxx/xxx.md 
+- 已读取摘要：
+  - @文件1：核心内容概述
+  - @文件2：核心内容概述
 ```
-
-**人机协作**：AI 自行判断，有阻塞则主动消除
 
 ---
 
@@ -37,12 +55,12 @@
 
 | 关键操作 | AI必须输出 | 人类介入 |
 |---------|-----------|---------|
-| **创建 md 文件** | "检查规则31，是否允许创建？" | 必须确认 |
-| **git commit** | "检查规则26，是否允许提交？" | 必须确认 |
-| **git push** | "检查规则26，是否允许推送？" | 必须确认 |
+| **创建 md 文件** | "检查规则8，是否允许创建？" | 必须确认 |
+| **git commit** | "检查规则6，是否允许提交？" | 必须确认 |
+| **git push** | "检查规则6，是否允许推送？" | 必须确认 |
 | **任务完成自检** | 输出完整规则检查表 | 必须确认 |
 
-**详细规范**：见 `context/rule/ai-collaboration/checkpoint/CHECKPOINT_SPEC.md`
+**详细规范**：见 `@.iflow/context/rule/ai-collaboration/checkpoint/CHECKPOINT_SPEC.md `
 
 ---
 
@@ -77,7 +95,7 @@
 
 **人机协作**：AI 自行判断，有阻塞则主动消除
 
-### 4.1 确认需求理解
+### 4.1 确认
 **必须输出**：需求理解复述 + 理解边界
 
 **执行内容**：
@@ -112,9 +130,12 @@
 **必须输出**：完整规则检查表（逐条输出）
 
 **执行内容**：
-- 对照 AI_COLLABORATION_SPEC.md 和 CODING_SPEC.md 逐项检查
+- 读取 AI_COLLABORATION_SPEC.md 和 CODING_SPEC.md
+- 逐条输出所有规则的检查结果
 - 消除 IDE 警告
 - 确认编译通过
+
+**详细格式**：见 `context/rule/ai-collaboration/checkpoint/CHECKPOINT_SPEC.md`
 
 **人机协作**：AI 输出自检结果 → 人类确认或提问
 
@@ -151,12 +172,12 @@
 
 | 规范类型 | 文件路径 |
 |---------|---------|
-| 协作规则 | `context/rule/ai-collaboration/AI_COLLABORATION_SPEC.md` |
-| 编码规则 | `context/rule/ai-coding/CODING_SPEC.md` |
-| 流程规范 | `context/rule/ai-collaboration/workflow/WORKFLOW_SPEC.md` |
-| 检查点规范 | `context/rule/ai-collaboration/checkpoint/CHECKPOINT_SPEC.md` |
+| 协作规则 | `@.iflow/context/rule/ai-collaboration/AI_COLLABORATION_SPEC.md ` |
+| 编码规则 | `@.iflow/context/rule/ai-coding/CODING_SPEC.md ` |
+| 流程规范 | `@.iflow/context/rule/ai-collaboration/workflow/WORKFLOW_SPEC.md ` |
+| 检查点规范 | `@.iflow/context/rule/ai-collaboration/checkpoint/CHECKPOINT_SPEC.md ` |
 
 ---
 
-**最后更新**：2026-03-02
-**版本**：19.0
+**最后更新**：2026-03-04
+**版本**：22.0

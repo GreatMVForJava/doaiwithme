@@ -9,9 +9,10 @@
 
 | 主题 | 文档 | 适用场景 |
 |------|------|---------|
-| **冷启动** | [cold-start.md](./cold-start.md) | 新项目/新AI接入 |
-| **协作方法** | [collaboration-method.md](./collaboration-method.md) | 提问策略、联动检查、沟通模式 |
-| **基础设施** | [infrastructure.md](./infrastructure.md) | 目录设计、规范制定 |
+| **冷启动** | `@.iflow/context/experience/cold-start.md ` | 新项目/新AI接入 |
+| **协作方法** | `@.iflow/context/experience/collaboration-method.md ` | 提问策略、联动检查、沟通模式 |
+| **协作角色** | `@.iflow/context/experience/collaboration-role.md ` | 协作模式选择、角色识别 |
+| **基础设施** | `@.iflow/context/experience/infrastructure.md ` | 目录设计、规范制定 |
 
 ---
 
@@ -59,9 +60,10 @@ experience目录存放**不依赖于具体项目和需求**的经验沉淀，用
 
 ## 文档列表
 
-1. [infrastructure.md](./infrastructure.md) - 目录结构设计、Skills设计、endPoint设计
-2. [cold-start.md](./cold-start.md) - 三层防御体系、协作原则、效果评估
-3. [collaboration-method.md](./collaboration-method.md) - 乔哈里窗、苏格拉底提问、联动检查、情境记忆法、SQ3R阅读法、流程设计方法论
+1. `@.iflow/context/experience/infrastructure.md ` - 目录结构设计、Skills设计、endPoint设计
+2. `@.iflow/context/experience/cold-start.md ` - 三层防御体系、协作原则、效果评估
+3. `@.iflow/context/experience/collaboration-method.md ` - 乔哈里窗、苏格拉底提问、联动检查、情境记忆法、SQ3R阅读法、流程设计方法论
+4. `@.iflow/context/experience/collaboration-role.md ` - 协作角色定义、协作模式分类、模式应用
 
 ## 方法论速查
 
@@ -73,7 +75,8 @@ experience目录存放**不依赖于具体项目和需求**的经验沉淀，用
 | **情境记忆法** | 经验沉淀 | 通过场景标签增强记忆和复用 |
 | **SQ3R阅读法** | 文档/代码理解 | 系统化阅读，从浏览到内化 |
 | **流程设计方法论** | 设计协作流程 | 每步都是协作节点，必须有输出物 |
+| **协作角色** | 协作模式选择 | 明确参与者，选择正确模式 |
 
 ---
 
-**最后更新**：2026-02-25
+**最后更新**：2026-03-05

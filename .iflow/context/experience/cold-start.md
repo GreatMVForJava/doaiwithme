@@ -217,7 +217,7 @@ AI执行任务时的标准读取顺序：
 
 ## 六、相关文档
 
-- [GLOBAL_CONCEPTS.md - 冷启动概念定义](../concept/GLOBAL_CONCEPTS.md)
-- [EXPERIENCE_SPEC.md - 经验索引](./EXPERIENCE_SPEC.md)
-- [requirementsGuidelines.md - 需求管理规范](../../../app-demand/requirementsGuidelines.md)
-- [endPoint.md - AI执行规范](../../endPoint.md)
+- `@.iflow/context/concept/GLOBAL_CONCEPTS.md ` - 冷启动概念定义
+- `@.iflow/context/experience/EXPERIENCE_SPEC.md ` - 经验索引
+- `@app-demand/requirementsGuidelines.md ` - 需求管理规范
+- `@.iflow/endPoint.md ` - AI执行规范

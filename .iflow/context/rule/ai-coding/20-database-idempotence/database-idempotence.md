@@ -353,8 +353,8 @@ Duplicate entry '5' for key 'llm_call_record.PRIMARY'
 
 ## 参考文档
 
-- [全局视角概念](../../../concept/GLOBAL_CONCEPTS.md) - 幂等性概念定义
-- [RULE_SPEC.md](../../RULE_SPEC.md) - 幂等性规则
+- `@.iflow/context/concept/GLOBAL_CONCEPTS.md ` - 幂等性概念定义
+- `@.iflow/context/rule/RULE_SPEC.md ` - 幂等性规则
 
 ---
 

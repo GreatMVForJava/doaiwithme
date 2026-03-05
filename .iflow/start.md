@@ -10,7 +10,7 @@
 
 本目录（`.iflow/`）和 `app-demand/` 是 AI 与人类程序员交互的核心内容，内容包括概念、规范、流程、rule、skill 等。
 
-**协作内容分类**（详见 `context/concept/GLOBAL_CONCEPTS.md`）：
+**协作内容分类**（详见 `@.iflow/context/concept/GLOBAL_CONCEPTS.md `）：
 
 | 分类 | 使用者 | 核心特征 | 典型文件 |
 |------|--------|---------|---------|
@@ -32,30 +32,83 @@
 
 ### 1.0 预检
 
-**核心问题：是否有概念阻塞理解需求？**
+**核心问题：是否有概念阻塞？这是什么类型的操作？需要读取哪些文件？**
 
-- 无阻塞 → 直接进入确认步骤
-- 有阻塞 → 先消除阻塞（调用 skill 查询 / 向用户确认）
+**执行顺序**：
+1. **概念阻塞检查**：是否有不理解的概念？→ 先读取 `@.iflow/context/concept/GLOBAL_CONCEPTS.md `
+2. **意图判断**：根据理解的需求，判断操作意图
+3. **文件读取**：根据意图映射必须读取的文件列表
+
+**意图-文件映射表**：
+
+| 操作意图 | 必须读取的文件 |
+|---------|---------------|
+| 修改规范文件 | `@.iflow/start.md `, `@.iflow/endPoint.md `, 相关规范文件 |
+| 修改代码文件 | `@.iflow/context/rule/ai-coding/CODING_SPEC.md `, 相关代码文件 |
+| 沉淀经验 | `@.iflow/context/experience/collaboration-method.md `, `@.iflow/context/experience/EXPERIENCE_SPEC.md ` |
+| 创建文档 | 检查规则8，确认是否允许 |
 
 **输出格式**：
 ```
 ## 预检
-- 概念阻塞：[无 / 有，已解决：xxx]
+- 概念阻塞：[无 / 有，概念：xxx，已读取：@GLOBAL_CONCEPTS.md，已理解：xxx]
+- 操作意图：[修改规范/修改代码/沉淀经验/创建文档]
+- 必须读取：
+  - @.iflow/context/xxx/xxx.md 
+  - @.iflow/context/xxx/xxx.md 
+- 已读取摘要：  - @文件1：核心内容概述
+  - @文件2：核心内容概述
 ```
+
+**强制要求**：
+- 必须先检查概念阻塞，有阻塞先消除（读取 GLOBAL_CONCEPTS.md）
+- 必须先判断意图，再输出文件列表
+- 必须实际读取文件，不能省略
+- 必须输出文件内容摘要，证明已读取
+- 文件路径必须是全路径+@前缀+空格结尾
+- 未输出摘要或未消除阻塞视为流程未完成
+
+### 1.1 规则清单
+
+**核心问题：本次任务需要遵守哪些规则？**
+
+**必须输出**：读取 `@.iflow/context/rule/ai-coding/CODING_SPEC.md ` 和 `@.iflow/context/rule/ai-collaboration/AI_COLLABORATION_SPEC.md `，输出适用规则清单
+
+**输出格式**：
+```
+## 规则清单
+
+已读取规则文件：
+- @.iflow/context/rule/ai-coding/CODING_SPEC.md 
+- @.iflow/context/rule/ai-collaboration/AI_COLLABORATION_SPEC.md 
+
+适用规则（根据操作类型判断）：
+| 规则编号 | 规则名称 | 是否适用 | 判断依据 |
+|---------|---------|---------|---------|
+| 规则4 | 联动完整性 | 是/否 | 本次是否涉及任何修改操作 |
+| 规则9 | 修改后自检 | 是/否 | 本次是否涉及代码修改 |
+| ... | ... | ... | ... |
+```
+
+**强制要求**：
+- 必须实际读取规则文件，不能省略
+- 必须根据操作类型判断是否适用
+- 未读取规则文件视为流程未完成
 
 | 步骤 | 必须输出 | 规范依据 |
 |------|---------|---------|
-| **预检** | 概念阻塞检查结果 | 本节 1.0 |
-| **确认** | 需求理解复述 + 理解边界 | endPoint.md 3.0 |
-| **规划** | 联动检查清单 + 执行计划 | collaboration-method.md 三 |
-| **执行** | 修改文件列表 + 编译结果 | endPoint.md 3.2 |
-| **自检** | 检查表 | endPoint.md 3.3 |
-| **沉淀** | 文档更新路径 | endPoint.md 3.4 |
+| **预检** | 操作意图 + 必须读取文件列表 + 已读取摘要 | 本节 1.0 |
+| **规则清单** | 适用规则清单 | 本节 1.1 |
+| **确认** | 需求理解复述 + 理解边界 | `@.iflow/endPoint.md ` |
+| **规划** | 联动检查清单 + 执行计划 | `@.iflow/context/experience/collaboration-method.md ` |
+| **执行** | 修改文件列表 + 编译结果 | `@.iflow/endPoint.md ` |
+| **自检** | 检查表 | `@.iflow/endPoint.md ` |
+| **沉淀** | 文档更新路径 | `@.iflow/endPoint.md ` |
 
-**详细流程**: `.iflow/endPoint.md`
-**AI协作规范**: `.iflow/context/rule/RULE_SPEC.md`
-**编码规范**: `.iflow/context/rule/ai-coding/CODING_SPEC.md`
-**协作方法**: `.iflow/context/experience/collaboration-method.md`
+**详细流程**: `@.iflow/endPoint.md `
+**AI协作规范**: `@.iflow/context/rule/RULE_SPEC.md `
+**编码规范**: `@.iflow/context/rule/ai-coding/CODING_SPEC.md `
+**协作方法**: `@.iflow/context/experience/collaboration-method.md `
 
 ---
 
@@ -82,19 +135,19 @@
 | │   ├─ `RULE_SPEC.md` | 共用 | 大写下划线 | 规则总入口 |
 | │   ├─ `ai-collaboration/` | AI | - | AI协作规范 |
 | │   │   ├─ `AI_COLLABORATION_SPEC.md` | 共用 | 大写下划线 | AI协作规范（核心准则） |
-| │   │   ├─ `24-comprehensive-analysis/` | 共用 | 编号-简写 | 规则24详解 |
-| │   │   ├─ `30-markdown-format/` | 共用 | 编号-简写 | 规则30详解 |
-| │   │   └─ `32-post-modification-check/` | 共用 | 编号-简写 | 规则32详解 |
+| │   │   ├─ `04-linkage-integrity/` | 共用 | 编号-简写 | 规则4详解 |
+| │   │   ├─ `05-comprehensive-analysis/` | 共用 | 编号-简写 | 规则5详解 |
+| │   │   ├─ `07-markdown-format/` | 共用 | 编号-简写 | 规则7详解 |
+| │   │   └─ `09-post-modification-check/` | 共用 | 编号-简写 | 规则9详解 |
 | │   └─ `ai-coding/` | AI | - | 编码规范 |
 | │       ├─ `CODING_SPEC.md` | 共用 | 大写下划线 | 编码规范（核心准则） |
-| │       ├─ `11-javadoc-comment/` | 共用 | 编号-简写 | 规则11详解 |
-| │       ├─ `14-database-idempotence/` | 共用 | 编号-简写 | 规则14详解 |
-| │       ├─ `15-delete-unused-code/` | 共用 | 编号-简写 | 规则15详解 |
-| │       ├─ `17-method-consistency/` | 共用 | 编号-简写 | 规则17详解 |
-| │       ├─ `18-modification-completeness/` | 共用 | 编号-简写 | 规则18详解 |
-| │       ├─ `21-concurrency-safety/` | 共用 | 编号-简写 | 规则21详解 |
-| │       ├─ `22-interface-parameter-validation/` | 共用 | 编号-简写 | 规则22详解 |
-| │       └─ `23-naming-semantic/` | 共用 | 编号-简写 | 规则23详解 |
+| │       ├─ `17-javadoc-comment/` | 共用 | 编号-简写 | 规则17详解 |
+| │       ├─ `20-database-idempotence/` | 共用 | 编号-简写 | 规则20详解 |
+| │       ├─ `22-method-consistency/` | 共用 | 编号-简写 | 规则22详解 |
+| │       ├─ `23-modification-completeness/` | 共用 | 编号-简写 | 规则23详解 |
+| │       ├─ `25-concurrency-safety/` | 共用 | 编号-简写 | 规则25详解 |
+| │       ├─ `26-interface-parameter-validation/` | 共用 | 编号-简写 | 规则26详解 |
+| │       └─ `27-naming-semantic/` | 共用 | 编号-简写 | 规则27详解 |
 | └─ `skills/` | AI | - | 技能目录 |
 |     ├─ `SKILLS_SPEC.md` | AI | 大写下划线 | Skills规范 |
 |     └─ `*-skill.md` | AI | 小写短横杠 | 具体技能定义 |
@@ -141,26 +194,26 @@
 
 | 阶段 | 操作 | 沉淀路径 |
 |------|------|---------|
-| **发现问题** | 记录到 issues | `.iflow/context/issues/YYYY-MM-DD-问题关键词.md` |
+| **发现问题** | 记录到 issues | `@.iflow/context/issues/YYYY-MM-DD-问题关键词.md ` |
 | **验证成熟** | 预防措施验证有效 | 在 issues 文件中记录验证结果 |
-| **固化迁移** | 迁移到规则或方法论 | 更新 `RULE_SPEC.md` 或 `collaboration-method.md` |
+| **固化迁移** | 迁移到规则或方法论 | 更新 `@.iflow/context/rule/RULE_SPEC.md ` 或 `@.iflow/context/experience/collaboration-method.md ` |
 | **清理删除** | 问题已固化 | 删除对应的 issues 文件 |
 
 ### 固化目标对照
 
 | 问题类型 | 固化目标 | 示例 |
 |---------|---------|------|
-| 每次必须检查 | `RULE_SPEC.md` | 规则0、规则19、规则26 |
-| 方法论层面 | `collaboration-method.md` | 联动检查方法论、乔哈里窗 |
-| 经验层面 | `experience/*.md` | 冷启动最佳实践 |
+| 每次必须检查 | `@.iflow/context/rule/RULE_SPEC.md ` | 规则0、规则4、规则6 |
+| 方法论层面 | `@.iflow/context/experience/collaboration-method.md ` | 联动检查方法论、乔哈里窗 |
+| 经验层面 | `@.iflow/context/experience/*.md ` | 冷启动最佳实践 |
 
 ### 其他沉淀场景
 
 | 场景 | 沉淀路径 | 示例 |
 |------|---------|------|
-| 提炼经验 | `.iflow/context/experience/*.md` | 更新 `collaboration-method.md` |
-| 更新索引 | `.iflow/context/experience/EXPERIENCE_SPEC.md` | 添加新经验条目 |
-| 需求相关 | `app-demand/YYYY-MM-DD/需求名称/需求冷启动.md` | 记录新发现 |
+| 提炼经验 | `@.iflow/context/experience/*.md ` | 更新 `@.iflow/context/experience/collaboration-method.md ` |
+| 更新索引 | `@.iflow/context/experience/EXPERIENCE_SPEC.md ` | 添加新经验条目 |
+| 需求相关 | `@app-demand/YYYY-MM-DD/需求名称/需求冷启动.md ` | 记录新发现 |
 
 ### 场景标签格式（情境记忆法）
 
@@ -181,27 +234,27 @@
 链接到相关的经验文档
 ```
 
-**详细说明**：`context/experience/collaboration-method.md` 
+**详细说明**：`@.iflow/context/experience/collaboration-method.md ` 
 
 ---
 
 ## 五、快速参考
 
 **AI 执行任务时**:
-1. 读取 `start.md` → 确认流程
-2. 读取 `endPoint.md` → 了解详细步骤
-3. 读取 `RULE_SPEC.md` → 遵守AI协作规范（**必须同时读取 ai-coding/CODING_SPEC.md**）
-4. 读取 `ai-coding/CODING_SPEC.md` → 遵守编码规范
-5. 读取 `collaboration-method.md` → 应用联动检查
+1. 读取 `@.iflow/start.md ` → 确认流程
+2. 读取 `@.iflow/endPoint.md ` → 了解详细步骤
+3. 读取 `@.iflow/context/rule/RULE_SPEC.md ` → 遵守AI协作规范（**必须同时读取 ai-coding/CODING_SPEC.md**）
+4. 读取 `@.iflow/context/rule/ai-coding/CODING_SPEC.md ` → 遵守编码规范
+5. 读取 `@.iflow/context/experience/collaboration-method.md ` → 应用联动检查
 
 **人类创建需求时**:
-1. 参考 `app-demand/requirementsGuidelines.md`
-2. 使用 `app-demand/requirementsTemplate.md`
-3. 创建 `app-demand/YYYY-MM-DD/需求名称/需求冷启动.md`
+1. 参考 `@app-demand/requirementsGuidelines.md `
+2. 使用 `@app-demand/requirementsTemplate.md `
+3. 创建 `@app-demand/YYYY-MM-DD/需求名称/需求冷启动.md `
 
 ---
 
-**版本**: v1.3
+**版本**: v1.5
 **创建日期**: 2026-02-25
-**更新日期**: 2026-03-02
+**更新日期**: 2026-03-04
 **维护者**: AI + 人类
