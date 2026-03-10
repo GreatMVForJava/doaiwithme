@@ -10,9 +10,9 @@
 | 主题 | 文档 | 适用场景 |
 |------|------|---------|
 | **冷启动** | `@.iflow/context/experience/cold-start.md ` | 新项目/新AI接入 |
-| **协作方法** | `@.iflow/context/experience/collaboration-method.md ` | 提问策略、联动检查、沟通模式 |
-| **协作角色** | `@.iflow/context/experience/collaboration-role.md ` | 协作模式选择、角色识别 |
+| **协作方法** | `@.iflow/context/experience/collaboration-method.md ` | 提问策略、联动检查、沟通模式（方法索引） |
 | **基础设施** | `@.iflow/context/experience/infrastructure.md ` | 目录设计、规范制定 |
+| **OpenClaw集成** | `@.iflow/context/experience/openclaw-integration.md ` | OpenClaw核心思想、通用/专用分离、方法论配合 |
 
 ---
 
@@ -62,8 +62,8 @@ experience目录存放**不依赖于具体项目和需求**的经验沉淀，用
 
 1. `@.iflow/context/experience/infrastructure.md ` - 目录结构设计、Skills设计、endPoint设计
 2. `@.iflow/context/experience/cold-start.md ` - 三层防御体系、协作原则、效果评估
-3. `@.iflow/context/experience/collaboration-method.md ` - 乔哈里窗、苏格拉底提问、联动检查、情境记忆法、SQ3R阅读法、流程设计方法论
-4. `@.iflow/context/experience/collaboration-role.md ` - 协作角色定义、协作模式分类、模式应用
+3. `@.iflow/context/experience/collaboration-method.md ` - 方法索引，乔哈里窗、苏格拉底提问、联动检查、情境记忆法、SQ3R阅读法
+4. `@.iflow/context/experience/openclaw-integration.md ` - OpenClaw核心思想、通用/专用分离、方法论与流程配合
 
 ## 方法论速查
 
@@ -75,8 +75,9 @@ experience目录存放**不依赖于具体项目和需求**的经验沉淀，用
 | **情境记忆法** | 经验沉淀 | 通过场景标签增强记忆和复用 |
 | **SQ3R阅读法** | 文档/代码理解 | 系统化阅读，从浏览到内化 |
 | **流程设计方法论** | 设计协作流程 | 每步都是协作节点，必须有输出物 |
-| **协作角色** | 协作模式选择 | 明确参与者，选择正确模式 |
+| **心跳检查方法** | 任务完成后 | 主动检查待办、问题、经验沉淀 |
+| **身份初始化** | 新用户/新项目 | 确认用户画像，建立协作上下文 |
 
 ---
 
-**最后更新**：2026-03-05
+**最后更新**：2026-03-06

@@ -12,14 +12,14 @@
 
 ``` markdown
 ❌ 错误：在规则定义中添加详细示例
-### 07. Markdown格式
+### 30. Markdown格式
 定义：... → 动作：... → 思想：...
 正确格式：` ``` text `
 错误格式：` ```text `
 
 ✅ 正确：规则定义只保留一行，详解放目录
 RULE_SPEC.md: 定义：... → 动作：... → 思想：...
-07-markdown-format/markdown-format.md: 详细示例、案例、最佳实践
+30-markdown-format/markdown-format.md: 详细示例、案例、最佳实践
 ```
 
 ---
