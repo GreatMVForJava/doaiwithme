@@ -47,11 +47,11 @@
 
 ### 案例2：修改规范文件
 
-**背景**：修改 `start.md` 流程定义
+**背景**：修改 `@.iflow/start.md` 流程定义
 
 **同步处理**：
-1. 读取 `endPoint.md` 确认流程一致性
-2. 读取 `WORKFLOW_SPEC.md` 确认流程一致性
+1. 读取 `@.iflow/endPoint.md` 确认流程一致性
+2. 读取 `@.iflow/context/rule/ai-collaboration/workflow/WORKFLOW_SPEC.md` 确认流程一致性
 3. 修改后对照验证
 
 ### 案例3：删除整个功能模块

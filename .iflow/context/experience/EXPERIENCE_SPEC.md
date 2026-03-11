@@ -1,4 +1,4 @@
-# experience 目录规范
+# EXPERIENCE_SPEC.md - 经验目录规范
 
 > **命名**: 全大写+下划线，作为当前目录层级的规范
 > **一句话指令**：告诉AI"查experience"，AI自动获取上下文
@@ -9,10 +9,52 @@
 
 | 主题 | 文档 | 适用场景 |
 |------|------|---------|
-| **冷启动** | `@.iflow/context/experience/cold-start.md ` | 新项目/新AI接入 |
-| **协作方法** | `@.iflow/context/experience/collaboration-method.md ` | 提问策略、联动检查、沟通模式（方法索引） |
-| **基础设施** | `@.iflow/context/experience/infrastructure.md ` | 目录设计、规范制定 |
-| **OpenClaw集成** | `@.iflow/context/experience/openclaw-integration.md ` | OpenClaw核心思想、通用/专用分离、方法论配合 |
+| **冷启动** | `@.iflow/context/experience/cold-start.md` | 新项目/新AI接入，四层防御体系 |
+| **协作方法** | `@.iflow/context/experience/collaboration-method.md` | 方法索引，乔哈里窗、苏格拉底提问、联动检查 |
+| **沉淀记录** | `@.iflow/context/experience/deposition-records.md` | 历史经验沉淀，AI犯错案例与解决方案 |
+| **设计原则** | 见下方"设计原则"章节 | 目录设计、文档组织、Skills/endPoint设计 |
+
+---
+
+## 设计原则（合并自 infrastructure.md）
+
+### 目录结构设计原则
+
+| 原则 | 说明 |
+|------|------|
+| 按需创建 | 不预先创建空目录，空目录增加认知负担 |
+| 不预先创建索引 | 索引维护成本高，文件>5个再考虑 |
+| 根据实际需求调整 | 不要为未来可能的需求设计 |
+| 结构一致性 | 同一类型目录应有类似结构，差异大说明设计有问题 |
+
+### 删除文件的判断标准
+
+| 情况 | 处理 |
+|------|------|
+| 内容重复 | 保留最完整的，删除其他 |
+| 空目录 | 直接删除 |
+| 未使用的模板 | 删除 |
+
+### 文档组织方式
+
+| 方式 | 格式 | 优点 | 适用场景 |
+|------|------|------|---------|
+| 时间序列 | `YYYY-MM-DD-主题.md` | 按时间排序，便于查找 | 问题记录、经验沉淀 |
+| 主题组织 | 按主题分类，子目录结构 | 相关文档集中 | 主题总结、设计经验 |
+
+### Skills 设计规范
+
+- 文件命名：`{技能名称}-skill.md`
+- 调用方式：AI → endPoint入口 → skills目录 → 执行步骤 → 返回结果
+- 技能描述格式：`技能名称：技能功能，技能用途`
+
+### endPoint 设计规范
+
+| 原则 | 说明 |
+|------|------|
+| 简洁性 | 只包含核心流程，不放具体指令 |
+| 流程性 | 定义"做什么"，不定义"怎么做" |
+| 指导性 | 使用明确术语，减少歧义 |
 
 ---
 
@@ -50,7 +92,7 @@ experience目录存放**不依赖于具体项目和需求**的经验沉淀，用
 
 | 场景 | 沉淀动作 | 示例 |
 |------|---------|------|
-| 发现新方法论 | 创建新文档 | `collaboration-method.md` |
+| 发现新方法论 | 创建新文档 | `@.iflow/context/experience/collaboration-method.md` |
 | 方法论验证有效 | 更新文档 | 添加新的方法论章节 |
 | 方法论过时 | 标记废弃 | 添加废弃说明 |
 
@@ -60,10 +102,9 @@ experience目录存放**不依赖于具体项目和需求**的经验沉淀，用
 
 ## 文档列表
 
-1. `@.iflow/context/experience/infrastructure.md ` - 目录结构设计、Skills设计、endPoint设计
-2. `@.iflow/context/experience/cold-start.md ` - 三层防御体系、协作原则、效果评估
-3. `@.iflow/context/experience/collaboration-method.md ` - 方法索引，乔哈里窗、苏格拉底提问、联动检查、情境记忆法、SQ3R阅读法
-4. `@.iflow/context/experience/openclaw-integration.md ` - OpenClaw核心思想、通用/专用分离、方法论与流程配合
+1. `@.iflow/context/experience/cold-start.md` - 四层防御体系、协作原则、效果评估
+2. `@.iflow/context/experience/collaboration-method.md` - 方法索引，乔哈里窗、苏格拉底提问、联动检查、情境记忆法、SQ3R阅读法
+3. `@.iflow/context/experience/deposition-records.md` - 经验沉淀记录，AI犯错案例与解决方案
 
 ## 方法论速查
 
@@ -80,4 +121,4 @@ experience目录存放**不依赖于具体项目和需求**的经验沉淀，用
 
 ---
 
-**最后更新**：2026-03-06
+**最后更新**：2026-03-11

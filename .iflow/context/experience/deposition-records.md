@@ -1,6 +1,8 @@
-# OpenClaw 集成方案
+# deposition-records.md - 经验沉淀记录
 
-> **定位**: OpenClaw核心思想与当前项目的集成方案
+> **定位**: AI 犯错案例与解决方案的沉淀记录
+> **适用场景**: AI 需要参考历史经验、避免重复犯错
+> **命名说明**: deposition = 沉淀，records = 记录
 > **核心要点（必须记住）**
 > - **当前项目定位**：文档工程（规范传递），不是运行时框架（多Agent协作）
 > - **适用原则**：借鉴设计思想，不是照搬文件结构
@@ -82,15 +84,7 @@
 
 ### 协作角色
 
-**参见**: `@app-demand/APP_DEMAND_SPEC.md `
-
-| 角色 | 定义 | 适用场景 |
-|------|------|---------|
-| **AI自我理解** | AI独立完成理解任务 | 读取需求、理解概念 |
-| **AI+人协作** | AI与人类双向确认 | 需求确认、方案澄清 |
-| **人+人配合** | 程序员之间的沟通 | 需求评审、代码审查 |
-| **智能人+智能人** | 跨智能人协作 | 交接、协作、对齐 |
-| **AI+AI配合** | 跨AI实例传递 | 经验沉淀、规则传递 |
+**详见**: `@.iflow/context/concept/GLOBAL_CONCEPTS.md `（零、复合工程核心理念 → 协作角色）
 
 ---
 
@@ -243,7 +237,7 @@ Level 2: 需求级冷启动 → 解决"需求背景是什么？"
 Level 3: 任务级执行清单 → 解决"具体怎么执行？"
 ```
 - 关键关系：Cache 是状态层（当前进度），冷启动是初始化层（背景上下文）
-- 文件修改：cold-start.md、CACHE_SPEC.md、endPoint.md
+- 文件修改：`@.iflow/context/experience/cold-start.md`、`@.iflow/cache/CACHE_SPEC.md`、`@.iflow/endPoint.md`
 
 ---
 
@@ -261,7 +255,7 @@ Level 3: 任务级执行清单 → 解决"具体怎么执行？"
 **我是否执行了我正在提出的方法？**
 | 提出的方法 | 是否执行 | 说明 |
 |-----------|---------|------|
-| 四层防御体系 | ✅ 是 | 已修改 cold-start.md |
+| 四层防御体系 | ✅ 是 | 已修改 `@.iflow/context/experience/cold-start.md` |
 ```
 
 ---
@@ -532,7 +526,7 @@ Cache 不能只在某个阶段读写，必须贯穿整个生命周期，否则�
 **修改文件**：
 - `.iflow/context/identity/identity.md`
 - `.iflow/context/identity/soul.md`
-- `.iflow/context/experience/cold-start.md`
+- `@.iflow/context/experience/cold-start.md`
 - `.iflow/context/experience/openclaw-integration.md`
 - `.iflow/endPoint.md`
 - `.iflow/start.md`

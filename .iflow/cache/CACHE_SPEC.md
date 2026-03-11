@@ -41,12 +41,12 @@ Cache（状态层）
 
 ``` text
 新项目/新AI：
-1. 读取 cold-start.md（项目级冷启动）
+1. 读取 `@.iflow/context/experience/cold-start.md`（项目级冷启动）
 2. 开始执行任务
 3. Cache 记录进度
 
 新需求：
-1. 读取 requirementColdStart.md（需求级冷启动）
+1. 读取 `@.iflow/context/experience/cold-start.md`（需求级冷启动）
 2. 开始执行任务
 3. Cache 记录进度
 

@@ -22,7 +22,7 @@
 | **记录分析** | 描述现象、分析根因、制定预防措施 | 问题描述、根本原因、预防措施 |
 | **强制改进** | 修改规范文件，增加预防机制 | 规则/流程/检查点的改进 |
 | **验证成熟** | 预防措施经过多次验证有效 | 验证记录 |
-| **固化迁移** | 迁移到规则或方法论 | 更新 RULE_SPEC.md 或 collaboration-method.md |
+| **固化迁移** | 迁移到规则或方法论 | 更新 `@.iflow/context/rule/RULE_SPEC.md` 或 `@.iflow/context/experience/collaboration-method.md` |
 | **清理删除** | 问题已固化，删除 issues 文件 | 删除对应的 issues 文件 |
 
 ---
@@ -46,7 +46,7 @@
 | **规则存在但未执行** | 增加强制输出环节 | 在流程中增加必须输出的步骤 |
 | **规则不完整** | 完善规则内容 | 更新规则描述，增加具体动作 |
 | **规则缺失** | 新增规则 | 在 AI_COLLABORATION_SPEC.md 中增加新规则 |
-| **方法论缺失** | 新增方法论 | 在 collaboration-method.md 中增加新方法 |
+| **方法论缺失** | 新增方法论 | 在 `@.iflow/context/experience/collaboration-method.md` 中增加新方法 |
 
 **禁止行为**：
 - 只记录问题，不改进
@@ -60,7 +60,7 @@
 | 问题类型 | 固化目标 | 示例 |
 |---------|---------|------|
 | **每次必须检查** | RULE_SPEC.md | 规则0、规则4、规则6 |
-| **方法论层面** | collaboration-method.md | 联动检查方法论、乔哈里窗 |
+| **方法论层面** | `@.iflow/context/experience/collaboration-method.md` | 联动检查方法论、乔哈里窗 |
 | **经验层面** | experience/*.md | 冷启动最佳实践 |
 
 ---

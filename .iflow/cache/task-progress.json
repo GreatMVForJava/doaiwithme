@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-03-10T02:00:00",
+  "updated_at": "2026-03-11T04:00:00",
   "current_task": null,
   "completed_tasks": [
     {
@@ -17,6 +17,31 @@
       "id": "task-003",
       "summary": "身份体系完善 - 沉淀教训、创建 IDENTITY_SPEC.md、初始化 user.md",
       "completed_at": "2026-03-10"
+    },
+    {
+      "id": "task-004",
+      "summary": "start.md 重构 - 说明性内容变成检查项",
+      "completed_at": "2026-03-10"
+    },
+    {
+      "id": "task-005",
+      "summary": "角色描述一致性修正 - AI教师 → 协作规范传递者",
+      "completed_at": "2026-03-11"
+    },
+    {
+      "id": "task-006",
+      "summary": "复合工程核心概念整合 - 复合工程、智能人定义、文件重命名、主动识别指令",
+      "completed_at": "2026-03-11"
+    },
+    {
+      "id": "task-007",
+      "summary": "强制执行点完善 - 每阶段结束增加主动识别检查和Cache更新",
+      "completed_at": "2026-03-11"
+    },
+    {
+      "id": "task-008",
+      "summary": "Skills规范更新 - 选择性借鉴Agent Skills标准",
+      "completed_at": "2026-03-11"
     }
   ],
   "tasks": []

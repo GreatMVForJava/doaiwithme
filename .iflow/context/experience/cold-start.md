@@ -76,7 +76,7 @@
 
 #### Level 1: 项目级（双跨冷启动）
 
-**位置**: 本文档（`cold-start.md`）及 `EXPERIENCE_SPEC.md`
+**位置**: 本文档（`cold-start.md`）及 `@.iflow/context/experience/EXPERIENCE_SPEC.md`
 
 **内容范围**:
 - 项目通用架构
@@ -233,7 +233,7 @@ AI执行任务时的标准读取顺序：
 ### Q2: 新AI接入项目时应该阅读哪些文档？
 
 **A**:
-1. 首先阅读 `EXPERIENCE_SPEC.md`（了解项目通用规范和快速入口）
+1. 首先阅读 `@.iflow/context/experience/EXPERIENCE_SPEC.md`（了解项目通用规范和快速入口）
 2. 然后阅读具体需求的 `需求冷启动.md`（了解需求背景）
 3. 最后阅读 `需求文档.md`（了解具体任务）
 

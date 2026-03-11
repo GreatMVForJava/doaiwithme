@@ -339,7 +339,7 @@ Duplicate entry '5' for key 'llm_call_record.PRIMARY'
 
 **解决方案**：
 - 在`.ai/rule.md`中添加幂等性规则
-- 在`GLOBAL_CONCEPTS.md`中添加幂等性概念
+- 在 `@.iflow/context/concept/GLOBAL_CONCEPTS.md` 中添加幂等性概念
 - 提供统一的幂等性实现模式
 
 ### 教训3：幂等性设计需要考虑业务场景

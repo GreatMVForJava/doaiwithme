@@ -26,7 +26,7 @@
 ```
 
 **命名说明**：
-- `identity.md`、`soul.md`、`user.md`：核心身份文件，使用小写（目录文件）
+- `@.iflow/context/identity/identity.md`、`@.iflow/context/identity/soul.md`、`@.iflow/context/identity/user.md`：核心身份文件，使用小写（目录文件）
 - `IDENTITY_SPEC.md`：规范文档，使用大写（指导原则）
 
 ---
@@ -87,7 +87,7 @@
 |---------|--------|
 | user.md 不存在 | 创建并询问初始化信息 |
 | user.md 含 `[待初始化]` | 询问初始化信息 |
-| 新项目/新 AI 实例 | 读取 cold-start.md + 触发初始化 |
+| 新项目/新 AI 实例 | 读取 `@.iflow/context/experience/cold-start.md` + 触发初始化 |
 
 ### 3.2 初始化流程
 
