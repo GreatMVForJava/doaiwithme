@@ -340,8 +340,8 @@ app-demand/
 
 ### Phase 1: 预检（AI自我理解）
 - [ ] 读取 .iflow/start.md 确认流程
-- [ ] 读取 .iflow/context/rule/ 了解规则
-- [ ] 读取 .iflow/context/experience/ 了解经验
+- [ ] 读取 .iflow/ecosystem/rule/ 了解规则
+- [ ] 读取 .iflow/ecosystem/experience/ 了解经验
 - [ ] 检查概念阻塞
 
 ### Phase 2: 确认（AI+人协作）
@@ -366,7 +366,7 @@ app-demand/
 
 ### Phase 6: 沉淀（AI+AI配合）
 - [ ] 更新需求文档状态
-- [ ] 沉淀经验到 .iflow/context/experience/
+- [ ] 沉淀经验到 .iflow/ecosystem/experience/
 - [ ] 更新 requirementColdStart.md
 ``` 
 
@@ -398,7 +398,7 @@ app-demand/
 
 ### 8.1 双跨冷启动（跨项目、跨需求）
 
-**位置**: `.iflow/context/experience/cold-start.md`
+**位置**: `.iflow/ecosystem/experience/cold-start.md`
 
 **内容范围**:
 - 项目通用架构

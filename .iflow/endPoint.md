@@ -4,6 +4,23 @@
 > **与 start.md 的关系**: start.md 是入口索引（"要做什么"），endPoint.md 是执行手册（"怎么做"）
 > **设计原理**: AI 记忆规律是"前后记忆，中间遗忘"，endPoint.md 在末位确保关键检查不被遗忘
 
+---
+
+## 核心要点（必须记住）
+
+- **六步流程**：预检 → 确认 → 规划 → 执行 → 自检 → 沉淀，每步必须输出
+- **四层防御**：Cache 状态层 → 项目级冷启动 → 需求级冷启动 → 任务级执行清单
+- **三层保证**：技术层（system prompt）→ 设计层（触发条件）→ 协作层（用户监督），**用户监督是最可靠的保证**
+- **三层信息模型**：L0 概览 → L1 Body → L2 详细文档，渐进式披露，Token 效率最大化
+- **身份确认**：每次预检必须读取 identity.md / soul.md / user.md
+- **强制输出**：每步必须输出表格证据，否则视为未完成
+- **防止幻觉**：证据必须具体，不能只写"已完成"
+- **意图门控**：先判断操作意图（修改规范/修改代码/沉淀经验），再映射文件列表
+- **自指检查**：提出新方法时，必须执行自己提出的方法
+- **心跳检查**：每个阶段结束必须检查 Cache、待办、issues、经验沉淀
+- **方法论贯穿**：预检用笛卡尔、确认用乔哈里窗、规划用联动检查、执行用删除评估、沉淀用固化判断
+- **Skill设计**：教知识 > 注册 API，效果等价 > 形式等价
+
 **强制输出模板已在 start.md 中定义，AI 必须填满表格才能进入下一阶段。**
 
 ---
@@ -22,12 +39,14 @@
 
 **核心问题：是否有概念阻塞？这是什么类型的操作？需要读取哪些文件？**
 
+**方法论要点**：笛卡尔方法论——怀疑（质疑理解）、分解（拆分问题）、层次构建（从核心到细节）、全面检查（不遗漏）
+
 ### 1.1 执行顺序
 
 | 顺序 | 内容 | 说明 |
 |------|------|------|
-| 1 | 概念阻塞检查 | 是否有不理解的概念？→ 先读取 `@.iflow/context/concept/GLOBAL_CONCEPTS.md ` |
-| 2 | 身份确认 | 读取 `@.iflow/context/identity/ ` 目录，确认身份和用户 |
+| 1 | 概念阻塞检查 | 是否有不理解的概念？→ 先读取 `@.iflow/ecosystem/concept/GLOBAL_CONCEPTS.md` |
+| 2 | 身份确认 | 读取 `@.iflow/ecosystem/identity/ ` 目录，确认身份和用户 |
 | 3 | 身份初始化检查 | 检查 user.md 是否已初始化，未初始化则触发询问 |
 | 4 | Cache 检查 | 读取 `@.iflow/cache/ ` 目录，检查是否有未完成的任务（Level 0） |
 | 5 | 冷启动检查 | 根据场景读取冷启动文档（Level 1/2/3） |
@@ -36,7 +55,7 @@
 
 ### 1.2 身份初始化检查（详细）
 
-**检查条件**：读取 `@.iflow/context/identity/user.md `，检查"初始化状态"字段
+**检查条件**：读取 `@.iflow/ecosystem/identity/user.md `，检查"初始化状态"字段
 
 **初始化状态判断**：
 - `✅ 已初始化` → 继续预检流程
@@ -62,7 +81,7 @@ AI 更新 user.md 中"初始化状态"为"✅ 已初始化"
 **身份切换场景**：
 - 用户说"切换到项目 X"或"切换到用户 Y"
 - AI 识别切换意图，读取 `identity/users/` 或 `identity/projects/` 目录
-- AI 更新 `@.iflow/context/identity/user.md` 或项目配置的指向
+- AI 更新 `@.iflow/ecosystem/identity/user.md` 或项目配置的指向
 - AI 重新读取新的用户/项目画像
 
 ### 1.2 Cache 检查（首次问候检查）
@@ -99,14 +118,14 @@ AI 更新 user.md 中"初始化状态"为"✅ 已初始化"
 
 ### 1.3 冷启动检查（四层防御）
 
-> **详细规范**: `@.iflow/context/experience/cold-start.md `
+> **详细规范**: `@.iflow/ecosystem/experience/cold-start.md `
 
 **四层防御体系**：
 
 | Level | 名称 | 位置 | 触发时机 |
 |-------|------|------|---------|
 | 0 | 状态层（Cache） | `.iflow/cache/` | 每次预检 |
-| 1 | 项目级冷启动 | `@.iflow/context/experience/cold-start.md` | 新项目/新AI |
+| 1 | 项目级冷启动 | `@.iflow/ecosystem/experience/cold-start.md` | 新项目/新AI |
 | 2 | 需求级冷启动 | `app-demand/YYYY-MM-DD/需求名称/requirementColdStart.md` | 新需求 |
 | 3 | 任务级执行清单 | 需求文档中的AI执行清单 | 执行任务时 |
 
@@ -115,7 +134,7 @@ AI 更新 user.md 中"初始化状态"为"✅ 已初始化"
 ``` text
 1. Cache 检查（已完成）
 2. 判断是否需要冷启动：
-   - 新项目？→ 读取 `@.iflow/context/experience/cold-start.md`
+   - 新项目？→ 读取 `@.iflow/ecosystem/experience/cold-start.md`
    - 新需求？→ 读取 requirementColdStart.md
    - 继续任务？→ 直接进入意图判断
 ```
@@ -134,8 +153,8 @@ AI 更新 user.md 中"初始化状态"为"✅ 已初始化"
 | 操作意图 | 必须读取的文件 |
 |---------|---------------|
 | 修改规范文件 | `@.iflow/start.md `, `@.iflow/endPoint.md `, 相关规范文件 |
-| 修改代码文件 | `@.iflow/context/rule/ai-coding/CODING_SPEC.md `, 相关代码文件 |
-| 沉淀经验 | `@.iflow/context/experience/collaboration-method.md `, `@.iflow/context/experience/EXPERIENCE_SPEC.md ` |
+| 修改代码文件 | `@.iflow/ecosystem/rule/ai-coding/CODING_SPEC.md `, 相关代码文件 |
+| 沉淀经验 | `@.iflow/ecosystem/experience/collaboration-method.md `, `@.iflow/ecosystem/experience/EXPERIENCE_SPEC.md` |
 | 创建文档 | 检查规则8，确认是否允许 |
 
 ### 1.5 强制输出模板（必须填空）
@@ -207,6 +226,8 @@ AI 更新 user.md 中"初始化状态"为"✅ 已初始化"
 
 **必须输出**：需求理解复述 + 理解边界 + 任务完成条件
 
+**方法论要点**：乔哈里窗——识别开放区（双方都知道）、盲点区（用户知道AI不知道）、隐藏区（AI知道用户没表达）、未知区（双方都不知道），扩大开放区
+
 ### 2.1 执行内容
 
 | 内容 | 说明 | 示例 |
@@ -218,7 +239,21 @@ AI 更新 user.md 中"初始化状态"为"✅ 已初始化"
 
 ### 2.2 Cache 操作（必须执行）
 
-> **详见**: `@.iflow/cache/CACHE_SPEC.md ` 第四节
+> **详见**: `@.iflow/cache/CACHE_SPEC.md` 第四节
+
+**触发条件判断表**：
+
+| 场景 | 是否触发 | Cache操作 | 之后执行 |
+|------|---------|----------|---------|
+| 用户提出多个问题 | ✅ 必须 | 写入 pending-tasks.json | 下次执行 |
+| 用户提问但AI未回答 | ✅ 必须 | 写入 pending-tasks.json | 下次确认 |
+| 用户说"稍后" | ✅ 必须 | 写入 pending-tasks.json | 下次执行 |
+| 用户说"跳过" | ✅ 必须 | 写入 skipped-tasks.json | 不执行 |
+| 用户没回答也没说跳过 | ✅ 必须 | 写入 pending-tasks.json | 下次确认 |
+| 任务有多个子任务 | ✅ 必须 | 更新 task-progress.json | 跟踪进度 |
+| 单次简单问答 | ❌ 不触发 | 无需Cache | — |
+
+**关键区分**: "跳过" = 不执行；"稍后/没回答" = 待执行
 
 **写入 task-progress.json**：
 
@@ -235,10 +270,6 @@ AI 更新 user.md 中"初始化状态"为"✅ 已初始化"
   }
 }
 ```
-
-**触发条件**：
-- 任务需要跨对话执行
-- 非单次简单问答
 
 ### 2.2 任务周期主动机制
 
@@ -313,6 +344,8 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 
 **必须输出**：联动检查清单 + 执行计划
 
+**方法论要点**：联动检查——修改必查关联（数据流上下游、共享概念、文档同步）；渐进式披露——按需加载详细内容
+
 ### 3.1 执行内容
 
 | 内容 | 说明 |
@@ -353,6 +386,18 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 ```
 
 ### 3.4 Cache 操作（必须执行）
+
+**触发条件判断表**：
+
+| 场景 | 是否触发 | Cache操作 | 之后执行 |
+|------|---------|----------|---------|
+| 有多个子任务需逐个确认 | ✅ 必须 | 写入 pending-tasks.json | 逐个确认 |
+| 用户说"跳过"某个任务 | ✅ 必须 | 写入 skipped-tasks.json | 不执行 |
+| 用户说"稍后" | ✅ 必须 | 写入 pending-tasks.json | 下次执行 |
+| 用户没回答 | ✅ 必须 | 写入 pending-tasks.json | 下次确认 |
+| 单文件简单修改 | ❌ 不触发 | 无需Cache | — |
+
+**关键区分**: "跳过" = 不执行；"稍后/没回答" = 待执行
 
 **写入 pending-tasks.json**：
 
@@ -396,6 +441,35 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 
 **必须输出**：修改文件列表 + 编译结果 + Cache 更新
 
+**方法论要点**：删除前评估——精简/删除内容时必须先评估重要性；文件修改一致性——修改前读前后5行+检查同类内容+检查全文格式
+
+### 4.0 删除前评估（精简/删除内容时必须）
+
+**触发条件**：精简文档、删除内容、合并文件时
+
+**执行步骤**：
+
+| 步骤 | 操作 | 说明 |
+|------|------|------|
+| 1 | 列出要删除的内容 | 明确删除范围 |
+| 2 | 评估每个内容的重要性 | 高/中/低 |
+| 3 | 高重要性 → 必须保留或迁移 | 不能删除 |
+| 4 | 输出评估表格，等待确认 | 用户确认后执行 |
+
+**输出模板**：
+
+``` text
+### 删除前评估
+
+| 内容 | 重要性 | 处理方式 | 原因 |
+|------|--------|---------|------|
+| 内容1 | 高/中/低 | 保留/迁移/删除 | ... |
+```
+
+**关键洞察**: 任何"精简"操作都必须先评估。
+
+**详细规范**: `@.iflow/ecosystem/experience/collaboration-method.md` 第十五章（文件修改一致性）
+
 ### 4.1 执行流程
 
 | 步骤 | 内容 | 输出 | Cache 操作 |
@@ -407,6 +481,18 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 | 5 | 用户跳过时 | - | 写入 skipped-tasks.json |
 
 ### 4.2 Cache 操作（必须执行）
+
+**触发条件判断表**：
+
+| 场景 | 是否触发 | Cache操作 | 之后执行 |
+|------|---------|----------|---------|
+| 每完成一个子任务 | ✅ 必须 | 更新 task-progress.json | 继续下一个 |
+| 用户说"跳过" | ✅ 必须 | 写入 skipped-tasks.json | 不执行 |
+| 用户说"稍后" | ✅ 必须 | 写入 pending-tasks.json | 下次执行 |
+| 用户没回答 | ✅ 必须 | 写入 pending-tasks.json | 下次确认 |
+| 单步操作无子任务 | ❌ 不触发 | 无需Cache | — |
+
+**关键区分**: "跳过" = 不执行；"稍后/没回答" = 待执行
 
 **更新 task-progress.json**：
 
@@ -490,6 +576,8 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 
 > **兜底重点**: 自检是防止遗漏的最后一道防线
 > **必须逐条输出**，不可省略
+
+**方法论要点**：完整检查——规则逐条检查、心跳检查、记忆压缩检查；三层保证——用户监督是最可靠的保证
 
 **必须输出**：
 1. 规则检查表（逐条输出）
@@ -578,7 +666,7 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 
 **协作规范传递者的角色**：
 - 每次经验都需要沉淀给其他AI实例使用
-- 沉淀路径：`.iflow/context/experience/`
+- 沉淀路径：`.iflow/ecosystem/experience/`
 - 沉淀内容：场景标签 + 场景描述 + 解决方案
 
 ### 5.3 心跳检查（嵌入到每次自检中）
@@ -643,6 +731,8 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 
 **必须输出**：沉淀内容 + 沉淀路径 + Cache 清理结果
 
+**方法论要点**：沉淀固化判断——AI不重复犯错=已固化；固化分类——贯穿协作→start.md、场景特定→endPoint.md、框架思想→collaboration-method.md
+
 ### 6.1 Cache 清理（任务完成时必须执行）
 
 > **触发条件**：任务完成条件全部满足 或 用户明确说"取消任务"
@@ -681,8 +771,8 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 内容是什么类型？
 ├─ 协作相关（方法论、沟通方式、错误预防）
 │   └─ 谁使用？
-│       ├─ AI使用 → .iflow/context/experience/
-│       └─ 共用 → .iflow/context/rule/
+│       ├─ AI使用 → .iflow/ecosystem/experience/
+│       └─ 共用 → .iflow/ecosystem/rule/
 │
 └─ 业务相关（概念、规则、产品需求）
     └─ 谁使用？
@@ -729,6 +819,8 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 > **兜底强调**: 以下操作必须在执行前输出检查，等待人类确认
 > **不可跳过**: 这是防止 AI 擅自执行的关键检查点
 
+### 7.1 关键操作列表
+
 | 关键操作 | AI 必须输出 | 人类介入 |
 |---------|-----------|---------|
 | **创建 md 文件** | "检查规则8，是否允许创建？" | 必须确认 |
@@ -736,7 +828,21 @@ AI 输出理解 → 人类确认或纠正 → AI 更新理解
 | **git push** | "检查规则6，是否允许推送？" | 必须确认 |
 | **任务完成** | 输出完整规则检查表 | 必须确认 |
 
-**详细规范**: `@.iflow/context/rule/ai-collaboration/checkpoint/CHECKPOINT_SPEC.md `
+### 7.2 确认边界判断（关键操作必须）
+
+**核心原则**：关键操作的确认必须是**明确同意**，不能是**推断同意**
+
+| 用户回复 | 正确理解 | AI 行为 |
+|---------|---------|--------|
+| "Y/是/确认/执行" | 明确同意 | 执行 |
+| "git message" | 想看消息 | 输出消息，等待确认 |
+| "看看效果" | 想预览 | 输出预览，等待确认 |
+| 沉默/无回复 | 未确认 | 不执行，再次询问 |
+| "跳过" | 不执行本次 | 记录到 Cache，继续 |
+
+**关键洞察**: 不确定时，宁可多问一次，也不要擅自执行
+
+**详细规范**: `@.iflow/ecosystem/rule/ai-collaboration/workflow/WORKFLOW_SPEC.md`（检查点机制章节）
 
 ---
 
@@ -850,10 +956,9 @@ AI 上下文结构：
 
 | 规范类型 | 文件路径 |
 |---------|---------|
-| 协作规则 | `@.iflow/context/rule/ai-collaboration/AI_COLLABORATION_SPEC.md ` |
-| 编码规则 | `@.iflow/context/rule/ai-coding/CODING_SPEC.md ` |
-| 流程规范 | `@.iflow/context/rule/ai-collaboration/workflow/WORKFLOW_SPEC.md ` |
-| 检查点规范 | `@.iflow/context/rule/ai-collaboration/checkpoint/CHECKPOINT_SPEC.md ` |
+| 协作规则 | `@.iflow/ecosystem/rule/ai-collaboration/AI_COLLABORATION_SPEC.md` |
+| 编码规则 | `@.iflow/ecosystem/rule/ai-coding/CODING_SPEC.md` |
+| 流程规范 | `@.iflow/ecosystem/rule/ai-collaboration/workflow/WORKFLOW_SPEC.md` |
 
 ---
 

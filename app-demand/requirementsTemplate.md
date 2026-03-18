@@ -171,7 +171,7 @@ graph TD
 ## 八、AI执行清单
 
 > **核心原则**：继承→复用→检查→沉淀→配合
-> **参考文档**：`.iflow/endPoint.md`、`.iflow/context/rule/RULE_SPEC.md`、`.iflow/context/rule/coding-standard.md`、`.iflow/context/experience/collaboration-method.md`
+> **参考文档**：`.iflow/endPoint.md`、`.iflow/ecosystem/rule/RULE_SPEC.md`、`.iflow/ecosystem/rule/coding-standard.md`、`.iflow/ecosystem/experience/collaboration-method.md`
 
 ### Phase 1: 准备（必读）
 - [ ] 读取本需求文档
@@ -180,8 +180,8 @@ graph TD
 - [ ] 确认验收标准（是否可验证、可量化）
 
 ### Phase 2: 实现（遵循规范）
-- [ ] **联动检查**：修改前检查关联节点/代码/文件，详见`.iflow/context/experience/collaboration-method.md`
-- [ ] **代码实现**：遵循`.iflow/context/rule/coding-standard.md`规范，禁止违反任何规则
+- [ ] **联动检查**：修改前检查关联节点/代码/文件，详见`.iflow/ecosystem/experience/collaboration-method.md`
+- [ ] **代码实现**：遵循`.iflow/ecosystem/rule/coding-standard.md`规范，禁止违反任何规则
 - [ ] **单元测试**：核心逻辑覆盖率>80%
 - [ ] **文档更新**：Javadoc完整，注释清晰
 
@@ -192,8 +192,8 @@ graph TD
 
 ### Phase 4: 沉淀（避免重复犯错）
 - [ ] 更新requirementColdStart.md（记录新发现）
-- [ ] 如有通用经验，更新`.iflow/context/experience/`目录
-- [ ] 如有问题，更新`.iflow/context/issues/`目录
+- [ ] 如有通用经验，更新`.iflow/ecosystem/experience/`目录
+- [ ] 如有问题，更新`.iflow/ecosystem/issues/`目录
 
 ### Phase 5: 交付
 - [ ] 更新需求文档状态为"已完成"

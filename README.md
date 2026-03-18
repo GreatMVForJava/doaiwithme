@@ -27,7 +27,7 @@
 
 ```
 .iflow/
-├── context/                    # 上下文模块
+├── ecosystem                    # 上下文模块
 │   ├── concept/
 │   │   └── GLOBAL_CONCEPTS.md  # 全局概念定义文档（定义核心术语如智能人、协作模式等）
 │   ├── experience/
@@ -81,13 +81,13 @@ app-demand/                     # 应用需求模块
             └── 支付 demo测试问题.md
 ```
 
-> 其中.iflow/context/rule/ai-coding 是基于 JDK17 版本做的代码规范，可以不用！！！
+> 其中.iflow/ecosystem/rule/ai-coding 是基于 JDK17 版本做的代码规范，可以不用！！！
 
 ## 四、核心概念
 
 1. **智能人**：AI + 人的组合体，具备决策 + 执行的完整能力
 2. **协作模式**：AI 自我理解、AI+人协作、人+人配合、智能人+智能人、AI+AI配合
-3. 详细定义见 `.iflow/context/concept/GLOBAL_CONCEPTS.md`
+3. 详细定义见 `.iflow/ecosystem/concept/GLOBAL_CONCEPTS.md`
 
 ## 五、复合工程相关
 
