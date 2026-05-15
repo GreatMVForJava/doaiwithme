@@ -27,7 +27,7 @@ allowed-tools: read_file, write_file, search_file_content, glob
 **调用示例**：
 ```
 read_file(
-  absolute_path="/Users/code/dhealth-agent-server/.iflow/ecosystem/skills/web-search-skill.md"
+  absolute_path="/Users/code/your-project/.iflow/ecosystem/skills/web-search-skill.md"
 )
 ```
 
@@ -41,7 +41,7 @@ read_file(
 **调用示例**：
 ```
 write_file(
-  file_path="/Users/code/dhealth-agent-server/.iflow/ecosystem/skills/new-skill.md",
+  file_path="/Users/code/your-project/.iflow/ecosystem/skills/new-skill.md",
   content="---\nname: new-skill\n..."
 )
 ```
@@ -58,7 +58,7 @@ write_file(
 ```
 search_file_content(
   pattern="name:.*skill",
-  path="/Users/code/dhealth-agent-server/.iflow/ecosystem/skills",
+  path="/Users/code/your-project/.iflow/ecosystem/skills",
   include="*.md"
 )
 ```
@@ -74,7 +74,7 @@ search_file_content(
 ```
 glob(
   pattern="**/*-skill.md",
-  path="/Users/code/dhealth-agent-server/.iflow/ecosystem/skills"
+  path="/Users/code/your-project/.iflow/ecosystem/skills"
 )
 ```
 

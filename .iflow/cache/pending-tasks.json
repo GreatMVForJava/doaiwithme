@@ -1,5 +1,14 @@
 {
   "version": "1.0",
-  "updated_at": "2026-03-09T00:00:00",
-  "tasks": []
+  "updated_at": "2026-04-15T00:00:00",
+  "tasks": [
+    {
+      "id": 1,
+      "task": "workflow 已重构，prompt 是否需要重构？",
+      "detail": "预加载的部分是否没有用，如 @保存prompt模板: code=DATA_EXTRACTION_USER, version=6.0",
+      "status": "pending",
+      "priority": "high",
+      "createdAt": "2026-04-09T16:55:00"
+    }
+  ]
 }

@@ -23,22 +23,22 @@ concept/
 │   ├── reuse.md                 # 复用
 │   ├── deposition.md            # 沉淀
 │   ├── hallucination.md         # 幻觉
-│   ├── 500-404.md               # 500=404
-│   ├── ai-rules-circle.md       # AI Rules 是圈不是线
-│   └── content-classification.md # 协作内容分类
+│   ├── 500-404.md               # 500=404（含规范选择策略）
+│   ├── content-classification.md # 协作内容分类
+│   ├── legibility.md            # Application Legibility（可读性）
+│   └── ai-to-ai-collaboration.md # AI-AI协作协议
 ├── execution-mode/              # L1 目录：执行模式概念
 │   ├── workflow-vs-dialog.md    # 工作流模式 vs 对话模式
 │   ├── node-context.md          # 节点上下文依赖
-│   └── cold-start.md            # 冷启动
+│   ├── sdd-workflow.md          # SDD流程（需求→设计→开发）
+│   └── harness-engineering.md   # Harness Engineering（AI协作架构）
 ├── token-economics/             # L1 目录：Token经济学概念
 │   ├── three-layer-model.md     # 三层信息模型
-│   ├── cqrs.md                  # CQRS 解耦
-│   ├── hash-optimization.md     # 增量哈希优化
 │   ├── teach-vs-api.md          # 教知识 > 注册 API
-│   └── effect-equivalence.md    # 效果等价
-└── skill-execution/             # L1 目录：Skill执行概念
-    ├── five-modes.md            # 五种Skill模式
-    └── execution-formula.md     # 执行力公式
+│   ├── effect-equivalence.md    # 效果等价
+│   └── knowledge-base.md        # 知识基座（踩坑/经验/团队知识）
+└── three-palaces-six-courts/    # L1 目录：三宫六院协作架构
+    └── three-palaces-six-courts.md  # 三宫六院完整定义（合并文件）
 ```
 
 ---
@@ -78,19 +78,26 @@ concept/
 | 具体场景 | 触发概念 | 文件路径 |
 |---------|---------|---------|
 | AI 输出一句话带过（如"已完成"） | 幻觉 | `@.iflow/ecosystem/concept/ai-collaboration/hallucination.md` |
-| AI 遇到无法解决的问题 | 500=404 | `@.iflow/ecosystem/concept/ai-collaboration/500-404.md` |
-| AI 需要选择适用规范 | AI Rules 是圈不是线 | `@.iflow/ecosystem/concept/ai-collaboration/ai-rules-circle.md` |
+| AI 遇到无法解决的问题 / 需要选择适用规范 | 500=404 | `@.iflow/ecosystem/concept/ai-collaboration/500-404.md` |
 | AI 完成任务后需要记录 | 沉淀 | `@.iflow/ecosystem/concept/ai-collaboration/deposition.md` |
 | AI 需要查找历史经验 | 复用 | `@.iflow/ecosystem/concept/ai-collaboration/reuse.md` |
 | AI 判断文件属于谁使用 | 协作内容分类 | `@.iflow/ecosystem/concept/ai-collaboration/content-classification.md` |
+| AI 编写或审查代码时 | Application Legibility | `@.iflow/ecosystem/concept/ai-collaboration/legibility.md` |
+| AI 需要与其他AI实例协作 | AI-AI协作 | `@.iflow/ecosystem/concept/ai-collaboration/ai-to-ai-collaboration.md` |
+| AI 交接任务给其他AI | AI-AI协作 | `@.iflow/ecosystem/concept/ai-collaboration/ai-to-ai-collaboration.md` |
 
 ### 执行模式场景触发
 
 | 具体场景 | 触发概念 | 文件路径 |
 |---------|---------|---------|
 | AI 判断是固定流程还是交互对话 | 工作流 vs 对话模式 | `@.iflow/ecosystem/concept/execution-mode/workflow-vs-dialog.md` |
-| AI 从零开始理解项目 | 冷启动 | `@.iflow/ecosystem/concept/execution-mode/cold-start.md` |
+| AI 从零开始理解项目 | 冷启动 | `@.iflow/ecosystem/experience/cold-start.md` |
 | AI 设计节点数据传递 | 节点上下文依赖 | `@.iflow/ecosystem/concept/execution-mode/node-context.md` |
+| AI 需要拆解需求为任务 | SDD流程 | `@.iflow/ecosystem/concept/execution-mode/sdd-workflow.md` |
+| AI 需要建立AI与人的"契约" | SDD流程 | `@.iflow/ecosystem/concept/execution-mode/sdd-workflow.md` |
+| AI 设计 Agent 系统架构 | Harness Engineering | `@.iflow/ecosystem/concept/execution-mode/harness-engineering.md` |
+| AI 优化 AI 编程效率 | Harness Engineering | `@.iflow/ecosystem/concept/execution-mode/harness-engineering.md` |
+| AI 构建 AI 协作环境 | Harness Engineering | `@.iflow/ecosystem/concept/execution-mode/harness-engineering.md` |
 
 ### Token 经济学场景触发
 
@@ -98,15 +105,37 @@ concept/
 |---------|---------|---------|
 | AI 设计新的 Skill | 三层信息模型、教知识 vs API | `@.iflow/ecosystem/concept/token-economics/` |
 | AI 优化 Token 消耗 | 三层信息模型 | `@.iflow/ecosystem/concept/token-economics/three-layer-model.md` |
-| AI 设计缓存机制 | CQRS 解耦 | `@.iflow/ecosystem/concept/token-economics/cqrs.md` |
 | AI 判断是否需要沙箱隔离 | 效果等价 | `@.iflow/ecosystem/concept/token-economics/effect-equivalence.md` |
+| AI 需要团队知识共享 | 知识基座 | `@.iflow/ecosystem/concept/token-economics/knowledge-base.md` |
+| AI 设计经验沉淀机制 | 知识基座 | `@.iflow/ecosystem/concept/token-economics/knowledge-base.md` |
+| AI 处理踩坑信号 | 知识基座 | `@.iflow/ecosystem/concept/token-economics/knowledge-base.md` |
 
-### Skill 执行场景触发
+### 三宫六院场景触发
 
 | 具体场景 | 触发概念 | 文件路径 |
 |---------|---------|---------|
-| AI 选择 Skill 执行方式 | 五种模式 | `@.iflow/ecosystem/concept/skill-execution/five-modes.md` |
-| AI 评估 Skill 质量 | 执行力公式 | `@.iflow/ecosystem/concept/skill-execution/execution-formula.md` |
+| AI 需要规划复杂任务 | 乾清宫（规划）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+| AI 需要审核方案质量 | 交泰宫（审核）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+| AI 需要协调多任务执行 | 坤宁宫（调度）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+| AI 需要理解模糊需求 | 承乾院（理解）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+| AI 需要执行具体任务 | 延禧院（执行）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+| AI 需要协调多方协作 | 永和院（协同）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+| AI 需要汇报进展或反馈 | 景仁院（反馈）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+| AI 需要审校执行结果 | 钟粹院（审校）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+| AI 需要沉淀经验知识 | 景阳院（沉淀）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+| AI 需要监控任务进度 | 钦天监（监控）| `@.iflow/ecosystem/concept/three-palaces-six-courts/three-palaces-six-courts.md` |
+
+### Cache 场景触发（每次执行必须）
+
+| 具体场景 | 触发操作 | 文件路径 |
+|---------|---------|---------|
+| AI 启动预检阶段 | 读取 Cache | `@.iflow/cache/task-progress.json` |
+| AI 开始新任务 | 写入任务边界 | `@.iflow/cache/task-progress.json` |
+| AI 有待确认任务 | 写入待办 | `@.iflow/cache/pending-tasks.json` |
+| AI 完成子任务 | 更新进度 | `@.iflow/cache/task-progress.json` |
+| AI 需要跳过任务 | 写入跳过记录 | `@.iflow/cache/skipped-tasks.json` |
+| AI 自检阶段 | 读取完成条件 | `@.iflow/cache/task-progress.json` |
+| AI 任务完成 | 清理 Cache | 删除/更新相关记录 |
 
 ---
 
@@ -115,15 +144,16 @@ concept/
 | 内容类型 | 存放位置 | 说明 |
 |---------|---------|------|
 | **概念定义** | `concept/` | "是什么"、"什么场景用" |
-| **方法论** | `experience/collaboration-method.md` | "怎么用"、"步骤是什么" |
+| **方法论** | `methodology/method-index.md` | "怎么用"、"步骤是什么" |
+| **经验沉淀** | `experience/deposition-records.md` | "踩坑记录"、"历史经验" |
 | **规范** | `rule/` 或 `skills/` | "具体规则"、"实现细节" |
 
 ### 示例：三层信息模型
 
 | 层级 | 文件 | 内容 |
 |------|------|------|
-| **概念** | `concept/token-economics/three-layer-model.md` | 定义：分层信息注入，Token 效率最大化 |
-| **方法论** | `experience/collaboration-method.md` | 方法：渐进式披露原则（十四） |
+| **概念** | `concept/token-economics/three-layer-model.md` | 定义：分层主动获取，Token 效率最大化 |
+| **方法论** | `methodology/method-index.md` | 方法：渐进式披露原则 |
 | **规范** | `skills/SKILLS_SPEC.md` | 实现：加载层级、Token 预算 |
 
 ### 示例：幻觉
@@ -131,7 +161,7 @@ concept/
 | 层级 | 文件 | 内容 |
 |------|------|------|
 | **概念** | `concept/ai-collaboration/hallucination.md` | 定义：四种幻觉类型 |
-| **方法论** | `experience/collaboration-method.md` | 方法：防止幻觉的检查方法 |
+| **方法论** | `methodology/method-index.md` | 方法：防止幻觉的检查方法 |
 | **规范** | `endPoint.md` | 执行：核心要点中强制要求具体证据 |
 
 ---
@@ -146,37 +176,6 @@ concept/
 
 ---
 
-## 概念文件模板
-
-```markdown
-# {概念名}
-
-> **定位**: {一句话定位}
-> **L2 引用**: @.iflow/ecosystem/{方法论或规范路径}
-
----
-
-## 定义
-
-{概念的定义}
-
-## 使用场景
-
-- 场景1：{描述}
-- 场景2：{描述}
-
-## 示例
-
-{具体示例}
-
-## L2 详细内容
-
-- 方法论：@.iflow/ecosystem/experience/collaboration-method.md#章节
-- 规范：@.iflow/ecosystem/{规范目录}/{规范文件}.md
-```
-
----
-
-**最后更新**：2026-03-17
-**版本**：v2.0
+**最后更新**：2026-05-15
+**版本**：v2.1
 **设计原则**：触发条件具体化、边界清晰化、避免重复

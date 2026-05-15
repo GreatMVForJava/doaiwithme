@@ -40,7 +40,7 @@ allowed-tools: search_file_content, glob, read_file
 ```
 search_file_content(
   pattern="HealthReportProcess",
-  path="/Users/code/dhealth-agent-server",
+  path="/Users/code/your-project",
   include="*.java"
 )
 ```
@@ -58,7 +58,7 @@ search_file_content(
 ```
 glob(
   pattern="**/*Service*.java",
-  path="/Users/code/dhealth-agent-server"
+  path="/Users/code/your-project"
 )
 ```
 
@@ -73,7 +73,7 @@ glob(
 **调用示例**：
 ```
 read_file(
-  absolute_path="/Users/code/dhealth-agent-server/IFLOW.md"
+  absolute_path="/Users/code/your-project/IFLOW.md"
 )
 ```
 

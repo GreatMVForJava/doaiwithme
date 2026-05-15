@@ -98,15 +98,15 @@
 |---------|---------|---------|
 | 规则10-12 | 设计原则 | - |
 | 规则13-16 | 代码架构 | - |
-| 规则17 | 注释规范 | 17-javadoc-comment/ |
+| 规则17 | 注释规范 | 17-javadoc-comment.md |
 | 规则18 | 配置管理 | - |
 | 规则19 | JDK特性规范 | - |
-| 规则20 | 数据库幂等性 | 20-database-idempotence/ |
+| 规则20 | 数据库幂等性 | 20-database-idempotence.md |
 | 规则21 | 变量使用 | - |
-| 规则22 | 方法一致性 | 22-method-consistency/ |
-| 规则23 | 修改完整性 | 23-modification-completeness/ |
+| 规则22 | 方法一致性 | 22-method-consistency.md |
+| 规则23 | 修改完整性 | 23-modification-completeness.md |
 | 规则24 | 不创建未使用的代码 | - |
-| 规则25 | 并发安全 | 25-concurrency-safety/ |
-| 规则26 | 接口参数校验 | 26-interface-parameter-validation/ |
-| 规则27 | 命名语义规范 | 27-naming-semantic/ |
+| 规则25 | 并发安全 | 25-concurrency-safety.md |
+| 规则26 | 接口参数校验 | 26-interface-parameter-validation.md |
+| 规则27 | 命名语义规范 | 27-naming-semantic.md |
 | 规则28-30 | 抽象方法、代码风格 | - |

@@ -27,19 +27,19 @@
 
 ```
 .iflow/
-├── ecosystem                    # 上下文模块
-│   ├── concept/
+├── ecosystem                    # 复合工程核心入口
+│   ├── concept/                 # 智能人概念定义
 │   │   └── GLOBAL_CONCEPTS.md  # 全局概念定义文档（定义核心术语如智能人、协作模式等）
-│   ├── experience/
+│   ├── experience/              # 智能人经验沉淀
 │   │   ├── EXPERIENCE_SPEC.md  # 经验规范总入口（定义经验沉淀格式和分类）
 │   │   ├── cold-start.md       # 冷启动方法
 │   │   ├── collaboration-method.md  # 协作方法（乔哈里窗、苏格拉底等）
 │   │   ├── collaboration-role.md    # 协作角色定义
 │   │   └── infrastructure.md   # 基础设施设计
-│   ├── issues/
+│   ├── issues/                  # 智能人问题记录
 │   │   ├── ISSUES_SPEC.md      # 问题规范总入口（定义问题分类和记录规范）
 │   │   └── 2026-03-02-AI主动性不足.md  # 具体问题记录
-│   ├── rule/
+│   ├── rule/                    # 智能人规则定义
 │   │   ├── RULE_SPEC.md        # 规则规范总入口（定义规则设计规范和分类导航）
 │   │   ├── ai-coding/          # AI 编码规范
 │   │   │   ├── CODING_SPEC.md  # 编码规范总入口（设计原则、代码架构、代码质量）

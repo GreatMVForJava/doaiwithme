@@ -1,36 +1,7 @@
 {
-  "lastUpdate": "2026-03-18",
-  "taskType": "OpenClaw/Anthropic Skill 文档内化",
-  "progress": "6/6",
-  "status": "completed",
-  "boundary": {
-    "include": [
-      "提取通用概念到 concept/",
-      "提取方法论到 experience/",
-      "补充 Skills 规范",
-      "补充工具清单和组合价值"
-    ],
-    "exclude": [
-      "项目特定功能",
-      "工具安装配置",
-      "外部依赖集成"
-    ]
-  },
-  "completionConditions": [
-    {"id": "cond-001", "content": "概念层更新完成", "status": "completed"},
-    {"id": "cond-002", "content": "方法论层更新完成", "status": "completed"},
-    {"id": "cond-003", "content": "Skills 规范补充完成", "status": "completed"},
-    {"id": "cond-004", "content": "工具清单和组合价值补充完成", "status": "completed"},
-    {"id": "cond-005", "content": "自检完成", "status": "completed"},
-    {"id": "cond-006", "content": "Cache 清理完成", "status": "completed"}
-  ],
-  "filesModified": [
-    ".iflow/ecosystem/skills/SKILLS_SPEC.md",
-    ".iflow/ecosystem/skills/skill-creator-skill.md"
-  ],
-  "keyChanges": {
-    "toolIndex": "补充完整工具清单（搜索/网页/文件/代码/数据库/AI/通讯类）",
-    "toolCombo": "补充工具组合价值表（网页处理+文件处理+搜索处理+数据处理）",
-    "gotchasTemplate": "补充踩坑清单模板（检查项+常见案例+Skill模板）"
-  }
+  "version": "1.0",
+  "updated_at": "",
+  "currentTask": null,
+  "steps": [],
+  "notes": ""
 }

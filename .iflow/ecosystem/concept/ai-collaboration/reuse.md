@@ -1,7 +1,7 @@
 # 复用（Reuse）
 
 > **定位**: AI 复用之前的编码经验和知识
-> **L2 引用**: @.iflow/ecosystem/experience/collaboration-method.md
+> **L2 引用**: @.iflow/ecosystem/methodology/method-index.md
 
 ---
 
@@ -23,5 +23,26 @@ AI：我查看了 experience/ 目录，发现可以使用构造器注入替代 @
 
 ## L2 详细规范
 
-- 详细规范：@.iflow/ecosystem/experience/collaboration-method.md
+- 详细规范：@.iflow/ecosystem/methodology/method-index.md
 - 相关概念：@.iflow/ecosystem/concept/ai-collaboration/deposition.md
+
+---
+
+## AI 执行检查
+
+| 检查项 | 合格标准 | 不合格示例 |
+|-------|---------|-----------|
+| **复用来源** | 明确指出文件路径 | "之前的经验"、"以前的做法" |
+| **复用内容** | 引用具体内容片段 | 只说"参考了经验" |
+| **复用验证** | 说明为什么适用当前场景 | 直接复用不验证 |
+
+**AI自检模板**：
+
+```text
+### 复用检查
+| 检查项 | 是否合格 | 说明 |
+|-------|---------|------|
+| 来源明确 | ✅/❌ | 文件路径: ... |
+| 内容引用 | ✅/❌ | 引用内容: ... |
+| 适用验证 | ✅/❌ | 适用原因: ... |
+```
